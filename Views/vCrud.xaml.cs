@@ -1,3 +1,4 @@
+
 using cfloresS6Jueves.Models;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
@@ -27,4 +28,14 @@ public partial class vCrud : ContentPage
 
     }
 
+    private void btnNuevo_Clicked(object sender, EventArgs e)
+    {
+		Navigation.PushAsync(new AgregarEstudiante());
+    }
+
+    private void listadoMetricas_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+		var metrica = (Metrica)e.SelectedItem;
+		Navigation.PushAsync(new vActualizarEliminarEstudiante(metrica));
+    }
 }

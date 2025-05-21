@@ -11,7 +11,7 @@ namespace cfloresS6Jueves
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new vCrud());
+            return new Window(new NavigationPage(new vCrud()));
         }
     }
 }

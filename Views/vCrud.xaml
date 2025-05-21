@@ -3,44 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="cfloresS6Jueves.Views.vCrud"
              Title="vCrud">
-    <ListView x:Name="listadoMetricas">
-        <ListView.Header>
-            <Grid Padding="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <!-- Títulos de las columnas con márgenes -->
-                <Label Grid.Row="0" Grid.Column="0" Text="Raza" FontAttributes="Bold" Margin="0,0,20,0" />
-                <Label Grid.Row="0" Grid.Column="1" Text="Especie" FontAttributes="Bold" Margin="20,0,0,0" />
-                <Label Grid.Row="0" Grid.Column="2" Text="Origen" FontAttributes="Bold" Margin="20,0,0,0" />
-            </Grid>
-        </ListView.Header>
+    <StackLayout>
+        <!-- Lista de métricas -->
+        <ListView x:Name="listadoMetricas" ItemSelected="listadoMetricas_ItemSelected">
+            <ListView.Header>
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Títulos de las columnas con márgenes -->
+                    <Label Grid.Row="0" Grid.Column="0" Text="Raza" FontAttributes="Bold" Margin="0,0,20,0" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="Especie" FontAttributes="Bold" Margin="20,0,0,0" />
+                    <Label Grid.Row="0" Grid.Column="2" Text="Origen" FontAttributes="Bold" Margin="20,0,0,0" />
+                </Grid>
+            </ListView.Header>
 
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Grid Padding="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <!-- Datos de las filas con márgenes -->
-                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding NombreRaza}" Margin="0,0,20,0" />
-                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Especie}" Margin="20,0,0,0" />
-                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding Origen}" Margin="20,0,0,0" />
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!-- Datos de las filas con márgenes -->
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding NombreRaza}" Margin="0,0,20,0" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Especie}" Margin="20,0,0,0" />
+                            <Label Grid.Row="0" Grid.Column="2" Text="{Binding Origen}" Margin="20,0,0,0" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
+        <!-- Botón al final de la pantalla -->
+        <Button x:Name="btnNuevo"
+                Text="Añadir Elemento"
+                Clicked="btnNuevo_Clicked"
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" />
+    </StackLayout>
 </ContentPage>
